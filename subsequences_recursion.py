@@ -1,5 +1,7 @@
 '''
 printing subsequences of a given array
+problem link for leetcode: https://leetcode.com/problems/subsets/description/ (easy)
+GFG: https://www.geeksforgeeks.org/problems/subsets-1613027340/1 (little bit tricky)
 ex:                     
 input1: a = [3,1,2]
 output1: 
@@ -46,3 +48,28 @@ def sub(ind, l, arr, n):
 
 arr=list(map(int,input("enter...").split()))
 sub(0,[],arr,len(arr))
+
+
+'''
+This problem is based on taking/adding the item to list and not taking/not adding the item to the same list.
+'''
+
+'''
+leetcode answer:
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        f,l=[],[]
+        def subs(ind):
+            if ind == len(nums):
+                f.append(l[:])
+                return
+                
+            l.append(nums[ind])
+            subs(ind+1)
+
+            l.pop()
+            subs(ind+1)
+
+        subs(0)
+        return f
+'''

@@ -73,3 +73,30 @@ class Solution:
         subs(0)
         return f
 '''
+
+#gfg problem soln: passed 140/1111 took help from chatgpt
+'''
+#User function Template for python3
+
+class Solution:
+    def subsets(self, arr):
+        # code here
+        arr = sorted(set(arr)) #removed duplicates and sorted
+        final =[]
+        l = []
+        
+        def sub(i):
+            if i == len(arr):
+                final.append(l[:])
+                return
+            
+            l.append(arr[i]) #including current elemet
+            sub(i+1)
+            
+            l.pop() #excluding current elemet
+            sub(i+1)
+    
+        sub(0)
+        return sorted(final) #lexicographical order
+'''
+
